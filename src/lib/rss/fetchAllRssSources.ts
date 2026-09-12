@@ -2,6 +2,7 @@ import 'server-only';
 
 import type { Article } from './article';
 import { fetchRss } from './fetchRss';
+import { prepareArticles } from './prepareArticles';
 import { RSS_SOURCES } from './sources';
 
 export type RssSourceError = {
@@ -31,5 +32,5 @@ export async function fetchAllRssSources(): Promise<FetchAllRssResult> {
     errors.push({ source: source.name, message });
   });
 
-  return { articles, errors };
+  return { articles: prepareArticles(articles), errors };
 }

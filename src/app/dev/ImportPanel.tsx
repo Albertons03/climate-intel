@@ -53,8 +53,7 @@ export default function ImportPanel() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-zinc-50 px-6 py-12 text-zinc-950">
-      <section className="w-full max-w-lg rounded-2xl bg-white p-8 shadow-sm ring-1 ring-zinc-200">
+    <section className="w-full max-w-lg rounded-2xl bg-white p-8 shadow-sm ring-1 ring-zinc-200">
         <h1 className="text-2xl font-semibold tracking-tight">RSS import</h1>
         <button
           className="mt-6 rounded-lg bg-zinc-950 px-4 py-3 font-medium text-white transition hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-50"
@@ -77,8 +76,7 @@ export default function ImportPanel() {
         )}
 
         {state.status === 'error' && <p className="mt-6 text-red-700">Az RSS import nem sikerült.</p>}
-      </section>
-    </main>
+    </section>
   );
 }
 

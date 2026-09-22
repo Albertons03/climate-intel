@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from "next/navigation";
 
 type ImportSuccess = {
   ok: true;
@@ -22,6 +23,7 @@ type ImportState =
 
 export default function ImportPanel() {
   const [state, setState] = useState<ImportState>({ status: 'idle' });  
+  const router = useRouter();
 
   async function handleImport() {
     setState({ status: 'loading' });
@@ -47,6 +49,7 @@ export default function ImportPanel() {
         savedCount: result.savedCount,
         sourceErrorCount: result.sourceErrors.length,
       });
+      router.refresh();
     } catch {
       setState({ status: 'error' });
     }
